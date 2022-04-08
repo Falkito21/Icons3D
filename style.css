@@ -1,0 +1,101 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.socialM
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* transicion para cuando pasamos por con el mouse por arriba */
+    transition: .5s;
+}
+.icons
+{
+    position: relative;
+    display: flex;
+}
+.icons li
+{
+    list-style: none;
+}
+.icons li::before
+{
+    /* data-text: en el HTML(texto de abajo) */
+    content: attr(data-text);
+
+    position: absolute;
+    /* el texto se posiciona a la mitad, detras de los iconos */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 14vw;
+    pointer-events: none;
+    font-weight: 700;
+    transition: .5s;
+
+    /* no se muestra en pantalla */
+    opacity: 0;
+}
+.icons li:hover::before{
+    /* se muestra por pantalla */
+    opacity: .1;
+    /* lo posisionamos debajo del texto */
+    transform: translate(-50%, calc(-50% + 150%));
+}
+
+.icons li a
+{
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 4em;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    box-shadow: 0 25px 35px rgba(0, 0, 0, .1);
+
+    /* transicion del cambio de color del background */
+    transition: background .25s;
+}
+.js-tilt-glare
+{
+    border-radius: 10px;
+}
+
+.icons li a:hover.fb
+{
+    background-color: #1877f2;
+}
+.icons li a:hover.yt
+{
+    background-color: #ff0000;
+}
+.icons li a:hover.tw
+{
+    background-color: #0099ff;
+}
+.icons li a:hover.itm
+{
+    background-color: #e4405f;
+}
+.icons li a:hover .fa-brands
+{
+    color: #fff;
+    /* le da la profundidad: aumenta el tamanio del icono/
+                             lo hace parecer 3D */
+    transform: scale(1.75) translateZ(50px);
+}
